@@ -1,0 +1,146 @@
+/* Import font (replace with Gellix font or similar) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 222 47% 24%;  /* SYMENTEX dark blue (#1d2760) */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 193 66% 51%; /* SYMENTEX accent blue (#38bace) */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 47.4% 11.2%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 47.4% 11.2%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 47.4% 11.2%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 47.4% 11.2%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-gray-800;
+  }
+
+  /* Make heading tags white when inside elements with dark backgrounds */
+  .bg-primary h1,
+  .bg-primary h2,
+  .bg-primary h3,
+  .bg-primary h4,
+  .bg-primary h5,
+  .bg-primary h6,
+  .bg-secondary h1,
+  .bg-secondary h2,
+  .bg-secondary h3,
+  .bg-secondary h4,
+  .bg-secondary h5,
+  .bg-secondary h6,
+  [class*="bg-[#"] h1,
+  [class*="bg-[#"] h2,
+  [class*="bg-[#"] h3,
+  [class*="bg-[#"] h4,
+  [class*="bg-[#"] h5,
+  [class*="bg-[#"] h6 {
+    @apply text-white;
+  }
+}
+
+@layer components {
+  .container-wide {
+    @apply mx-auto px-4 max-w-7xl;
+  }
+
+  .link-with-arrow {
+    @apply inline-flex items-center text-secondary hover:text-secondary/80 font-medium transition-colors;
+  }
+
+  /* Make links white when inside elements with dark backgrounds */
+  .bg-primary .link-with-arrow,
+  .bg-secondary .link-with-arrow,
+  [class*="bg-[#"] .link-with-arrow {
+    @apply text-white;
+  }
+
+  .link-with-arrow::after {
+    content: "→";
+    @apply ml-1 transition-transform duration-300;
+  }
+
+  .link-with-arrow:hover::after {
+    @apply translate-x-1;
+  }
+
+  .card-highlight {
+    @apply relative overflow-hidden rounded-md bg-primary text-white p-6;
+  }
+
+  /* Button styles like Cognizant site */
+  .btn-symentex {
+    @apply inline-flex items-center justify-center px-4 py-2 bg-secondary text-white font-medium rounded-none
+    hover:bg-secondary/90 transition-colors;
+  }
+
+  .nav-item {
+    @apply px-3 py-2 text-sm font-medium text-primary hover:text-secondary transition-colors;
+  }
+}
